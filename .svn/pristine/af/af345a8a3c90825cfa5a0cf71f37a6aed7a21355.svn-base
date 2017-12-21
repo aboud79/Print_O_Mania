@@ -1,0 +1,27 @@
+//package com.dao;
+//
+//public class CartDaoImpl implements CartDao {
+//
+//	public void getProduct()
+//	{
+//		String pid[];
+//		try
+//		{
+//			 Class.forName("com.mysql.jdbc.Driver");
+//			 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/seproject","root", "root");
+//			 String sql="SELECT pid FROM cart WHERE userid ='"+cart.getUserid()+"' ";
+//		}
+//		catch (Exception e) 
+//		{
+//			// TODO: handle exception
+//		}
+//	}
+//	public void createTable()
+//	{
+//
+//		 Class.forName("com.mysql.jdbc.Driver");
+//		 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/seproject","root", "root");
+//		 String sql="SELECT p_picture"
+//	}
+//	
+//}

@@ -1,0 +1,67 @@
+package com.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.controller.DBConn;
+import com.model.Cart;
+
+
+public class CartDaoImpl implements CartDao
+{private Connection conn;
+
+public CartDaoImpl(){
+	conn= DBConn.getConnection();
+}
+	public List getProduct(String userId)
+	{
+		PreparedStatement preparedStatement;
+		List im=new ArrayList();
+		String pid[]=null;
+		try
+		{
+				preparedStatement = conn.prepareStatement("SELECT pid FROM cart WHERE userId='"+userId+"'");
+				ResultSet rs= preparedStatement.executeQuery();
+			  int i=0;
+			  while(rs.next())
+			  {
+				  pid[i]=rs.getString("pid");
+				  i++;
+			  }
+		}
+		catch (Exception e) 
+		{
+			// TODO: handle exception
+		}
+		
+		im=createTable(pid);
+		return im;
+	}
+	public List createTable(String pid[])
+	{
+		List im=new ArrayList();
+		
+		try
+		{
+
+		 for(int i=0;i<pid.length;i++)
+		 {
+		 	String sql="SELECT p_picture FROM products WHERE pid='"+pid[i]+"'" ;
+		 	 Statement statement = conn.createStatement();
+			  ResultSet set=statement.executeQuery(sql);
+			  im.add(set.getBlob("p_picture"));
+		 	
+	   	}
+	}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
+		return im;
+	}
+
+}

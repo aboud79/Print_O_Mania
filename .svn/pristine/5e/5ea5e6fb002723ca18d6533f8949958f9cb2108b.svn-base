@@ -1,0 +1,20 @@
+package com.model;
+
+
+public class Cart
+{
+	static String userid;
+	static String productid;
+	public static String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+	public static String getProductid() {
+		return productid;
+	}
+	public void setProductid(String productid) {
+		this.productid = productid;
+	}
+}

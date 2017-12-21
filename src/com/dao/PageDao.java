@@ -1,0 +1,17 @@
+package com.dao;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.model.Product;
+
+public interface PageDao {
+
+	public List<Product> getRecentProducts() ;
+	
+	public List<Product> viewProduct(String id);
+
+	public byte[] getImages(String imageId) throws SQLException ;
+
+	public void addCartProduct(String userId, String productId);
+
+}
